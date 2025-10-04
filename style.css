@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Pokemon Solid;
+}
+@font-face {
+    font-family: 'Pokemon Solid';
+    src: url(./pokemon/Pokemon\ Solid.ttf) format(truetype);
+}
+body{
+    height: 100vh;
+    background-image: url('./img/fundo.png');
+}
+header{
+    height: 100px;
+    background-color: #204FE8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+main{
+    height: 80%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+button{
+    height: 65px;
+    width: 460px;
+    border-radius: 10px;
+    border: none;
+    background-color: #204FE8;
+    padding-bottom: 20px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
