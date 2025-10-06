@@ -20,4 +20,12 @@ async function todosDetalhes() {
     console.log(todosDetalhes)
     return todosDetalhes
 }
-todosDetalhes()
+
+async function criarCardPokemon() {
+
+    const pokemons = todosDetalhes()
+    const container = document.getElementById('container')
+    
+    const img = document.createElement('img')
+    img.url =  pokemons.sprites
+} 

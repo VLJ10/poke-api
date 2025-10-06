@@ -57,7 +57,7 @@ button{
     line-height: 1.6;
     color: #FFCA02;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: box-shadow 0.5s ease;
 
 }
 button:hover{
