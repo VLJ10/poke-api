@@ -8,7 +8,7 @@ async function trazerTodosPokemons() {
 }
 async function detalhesPokemons(pokemonUrl) {
     const respostaUrl = await fetch(pokemonUrl)
-    const detalhes = respostaUrl.json()
+    const detalhes = await respostaUrl.json()
     return detalhes
 }
 async function todosDetalhes() {
@@ -17,15 +17,38 @@ async function todosDetalhes() {
     const promessa = todosPokemons.map(poke => detalhesPokemons(poke.url))
     const todosDetalhes = await Promise.all(promessa)
 
-    console.log(todosDetalhes)
+    
+
     return todosDetalhes
 }
 
 async function criarCardPokemon() {
+    const pokemons = await todosDetalhes()
+    console.log(pokemons)
 
-    const pokemons = todosDetalhes()
     const container = document.getElementById('container')
     
-    const img = document.createElement('img')
-    img.url =  pokemons.sprites
+    pokemons.forEach(poke =>{
+        const card = document.createElement('div')
+        card.className = 'card'
+
+        const fundoBranco = document.createElement('div')
+        fundoBranco.className = 'fundoBranco'
+
+        const img = document.createElement('img')
+        img.src = poke.sprites.front_default
+        
+        const nome = document.createElement('h2')
+        nome.className = 'nome'
+        nome.textContent = poke.name
+
+        fundoBranco.appendChild(img)
+        card.append(fundoBranco, nome)
+        container.appendChild(card)
+
+        
+    })
+   
 } 
+criarCardPokemon()
+
