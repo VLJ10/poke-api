@@ -1,6 +1,9 @@
 'use strict'
 
 const container = document.getElementById('container')
+
+
+
 // Busca todos os pokemons na API
 async function trazerTodosPokemons() {
     const responseApi = await fetch('https://pokeapi.co/api/v2/pokemon?limit=99880&offset=0')
@@ -44,7 +47,7 @@ async function criarCardsPokemon() {
 
     console.log(pokemons)
     pokemons.forEach(poke => {
-        const card = document.createElement('div')
+        let card = document.createElement('div')
         card.className = 'card'
 
         const fundoBranco = document.createElement('div')
@@ -61,9 +64,15 @@ async function criarCardsPokemon() {
         card.append(fundoBranco, nome)
         container.appendChild(card)
 
+        if (card) {
+        card.addEventListener('click', () => {
+            window.location.href = '../page3/page3.html'
+        })
+    }
 
     })
 
+    
 }
 
 async function criarUmCard(nome) {
@@ -73,7 +82,7 @@ async function criarUmCard(nome) {
 
     container.replaceChildren()
 
-    const card = document.createElement('div')
+    let card = document.createElement('div')
     card.className = 'card'
 
     const fundoBranco = document.createElement('div')
@@ -90,7 +99,12 @@ async function criarUmCard(nome) {
     card.append(fundoBranco, titulo)
     container.appendChild(card)
 
+    if (card) {
+        card.addEventListener('click', () => {
+            window.location.href = '../page3/page3.html'
+        })
 
+    }
 }
 
 const input = document.getElementById('input')
