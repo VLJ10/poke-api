@@ -63,10 +63,11 @@ async function criarCardsPokemon() {
         fundoBranco.appendChild(img)
         card.append(fundoBranco, nome)
         container.appendChild(card)
+        localStorage.clear()
 
         if (card) {
         card.addEventListener('click', () => {
-            localStorage.setItem('pokemonSelecionado', JSON.stringify(poke))
+            localStorage.setItem('pokemonSelecionado', JSON.stringify(poke.name))
             window.location.href = '../page3/page3.html'
         })
     }
@@ -102,7 +103,7 @@ async function criarUmCard(nome) {
 
     if (card) {
         card.addEventListener('click', () => {
-            localStorage.setItem('pokemonSelecionado', JSON.stringify(pokemon))
+            localStorage.setItem('pokemonSelecionado', JSON.stringify(pokemon.name))
             window.location.href = '../page3/page3.html'
         })
 

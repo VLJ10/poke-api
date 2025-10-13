@@ -7,19 +7,36 @@ botaoVoltar.addEventListener('click', () => {
     window.location.href = '../page2/page2.html'
 })
 
+const nome = JSON.parse(localStorage.getItem('pokemonSelecionado'))
+
+async function buscarPokemon(nome) {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`)
+
+        if (!response.ok) {
+            return null
+        }
+        const dados = await response.json()
+        return dados
+    } catch (error) {
+
+    }
+
+
+}
 async function informacoesPokemon() {
-    const pokemon = JSON.parse(localStorage.getItem('pokemonSelecionado'))
+    const pokemon = await buscarPokemon(nome)
 
     console.log(pokemon)
     const container = document.getElementById('container')
 
 
     const img = document.createElement('img')
-    img.src = await pokemon.sprites.front_default
+    img.src =  pokemon.sprites.other['official-artwork'].front_default
 
-    const nome = document.createElement('h1')
-    nome.className = 'nome'
-    nome.textContent = pokemon.name
+    const nomePokemon = document.createElement('h1')
+    nomePokemon.className = 'nome'
+    nomePokemon.textContent = pokemon.name
 
     //Tipo pokemon
     const tipo = document.createElement('h3')
@@ -78,7 +95,7 @@ async function informacoesPokemon() {
     peso.appendChild(pPeso)
     altura.appendChild(pAltura)
     exp.appendChild(pExp)
-    containerTexto.append(nome, tipo, habilidades, peso, altura, exp)
+    containerTexto.append(nomePokemon, tipo, habilidades, peso, altura, exp)
 
     container.append(img, containerTexto)
 }
