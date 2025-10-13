@@ -66,6 +66,7 @@ async function criarCardsPokemon() {
 
         if (card) {
         card.addEventListener('click', () => {
+            localStorage.setItem('pokemonSelecionado', JSON.stringify(poke))
             window.location.href = '../page3/page3.html'
         })
     }
@@ -101,6 +102,7 @@ async function criarUmCard(nome) {
 
     if (card) {
         card.addEventListener('click', () => {
+            localStorage.setItem('pokemonSelecionado', JSON.stringify(pokemon))
             window.location.href = '../page3/page3.html'
         })
 
