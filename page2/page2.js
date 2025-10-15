@@ -45,7 +45,7 @@ async function buscarPokemon(nome) {
 async function criarCardsPokemon() {
     const pokemons = await todosDetalhes()
 
-    console.log(pokemons)
+
     pokemons.forEach(poke => {
         let card = document.createElement('div')
         card.className = 'card'

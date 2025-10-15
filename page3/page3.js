@@ -6,6 +6,10 @@ const botaoVoltar = document.getElementById('btnVoltar')
 botaoVoltar.addEventListener('click', () => {
     window.location.href = '../page2/page2.html'
 })
+const botaoEvolucao = document.getElementById('btnEvolucao')
+botaoEvolucao.addEventListener('click', () => {
+    window.location.href = '../page4/page4.html'
+})
 
 const nome = JSON.parse(localStorage.getItem('pokemonSelecionado'))
 
