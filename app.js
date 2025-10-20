@@ -27,9 +27,7 @@ if (botaoInterrogacao) {
 
     })
 }
-document.addEventListener('click', () => {
-    container.replaceChild()
-})
+
 
 
 
